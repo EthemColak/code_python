@@ -8,6 +8,9 @@ from scipy.sparse.linalg import spsolve
 def compute_a_star(A_per):
     return 1/(np.mean(1/A_per))
 
+def compute_a_star_sto(A_per):
+    return 1/(np.mean(np.mean(1/A_per)))
+
 def compute_a_derive(A,h):
     n = A.size-1
     return np.concatenate(([(-A[2]+4*A[1]-3*A[0])/2/h],(A[2:n+1]-A[0:n-1])/2/h,[(3*A[n]-4*A[n-1]+A[n-2])/2/h]))
